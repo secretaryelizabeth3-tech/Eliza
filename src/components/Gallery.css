@@ -1,0 +1,8 @@
+.gallery { background: var(--deep); }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: var(--black); }
+.gallery-item { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--surface); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease, filter 0.5s ease; filter: saturate(0.8) brightness(0.85); }
+.gallery-hover { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(139,26,26,0.6), rgba(10,7,7,0.4)); opacity: 0; transition: opacity 0.4s ease; }
+.gallery-item:hover img { transform: scale(1.08); filter: saturate(1) brightness(0.9); }
+.gallery-item:hover .gallery-hover { opacity: 1; }
+@media (max-width: 600px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
