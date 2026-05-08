@@ -1,18 +1,19 @@
 import React from 'react';
 import './JoinCTA.css';
 
-export default function JoinCTA() {
+export default function JoinCTA({ onNavigate }) {
   return (
-    <section className="join-cta" id="membership">
+    <section className="join-cta">
       <div className="join-bg" />
       <div className="container">
         <div className="join-inner">
-          <p className="join-eyebrow">Exclusive Membership</p>
+          <span className="chip">Exclusive Membership</span>
           <h2 className="join-title">
-            Want to Join the Best, Largest, and Most Discreet<br />
-            BDSM Community in the World?
+            WANT TO JOIN THE BEST, LARGEST,<br />
+            AND MOST DISCREET BDSM<br />
+            COMMUNITY IN THE WORLD?
           </h2>
-          <div className="section-divider" />
+          <div className="divider" />
           <p className="join-body">
             This is the most renowned and largest BDSM community in the world. BDSM is a lifestyle
             and we ought to be proud of who we truly are. This is where you belong and we are happy
@@ -20,11 +21,15 @@ export default function JoinCTA() {
             thrilling adventures and ecstasy. Keep dreaming — we are here to bring it to reality.
           </p>
           <div className="join-actions">
-            <a href="#membership" className="btn btn-solid">Membership Enquiries</a>
-            <a href="#reservation" className="btn">Book a Dungeon</a>
+            <button className="btn btn-primary" onClick={() => onNavigate('membership')}>
+              Membership Enquiries
+            </button>
+            <button className="btn btn-ghost" onClick={() => onNavigate('reservation')}>
+              Book a Dungeon
+            </button>
           </div>
           <div className="privacy-note">
-            <p>🔒 Discreetness is our top priority. We are committed to protecting your identity while helping you set up a memorable, kinky atmosphere.</p>
+            <p>🔒 Discreetness is our top priority. We are committed to protecting your identity while helping you setup a memorable kinky atmosphere.</p>
           </div>
           <div className="payment-section">
             <p className="payment-label">Accepted Payments</p>

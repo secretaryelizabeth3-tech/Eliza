@@ -1,40 +1,62 @@
-.dungeons-intro { padding: 8rem 0 0; background: var(--deep); position: relative; }
-.dungeons-intro::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border), transparent);
+.dungeons { padding: 6rem 0 0; background: var(--deep); border-top: 1px solid var(--border); }
+.dungeons-header { max-width: 700px; margin-bottom: 2.5rem; }
+.dungeons-title {
+  font-family: var(--font-display); font-size: clamp(3rem, 14vw, 6rem);
+  font-weight: 900; letter-spacing: 0.12em; color: var(--white); line-height: 0.95;
+  margin: 0.75rem 0;
 }
-.intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
-.intro-label {
-  font-family: var(--font-ui); font-size: 0.65rem; font-weight: 600;
-  letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+.dungeons-sub {
+  font-family: var(--font-body); font-size: 1.2rem; font-style: italic;
+  color: var(--gold-light); margin-bottom: 1rem; line-height: 1.4;
 }
-.intro-heading {
-  font-family: var(--font-display); font-size: clamp(3rem, 7vw, 5.5rem);
-  font-weight: 900; letter-spacing: 0.15em; color: var(--white); line-height: 1;
-  text-shadow: 0 2px 40px rgba(139,26,26,0.3);
+.dungeons-copy { font-family: var(--font-body); font-size: 1rem; color: var(--muted); line-height: 1.8; }
+
+/* Tabs */
+.space-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; overflow-x: auto; padding-bottom: 0.25rem; scrollbar-width: none; }
+.space-tabs::-webkit-scrollbar { display: none; }
+.space-tab {
+  flex-shrink: 0; display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-ui); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+  cursor: pointer; transition: all 0.2s ease; -webkit-tap-highlight-color: transparent;
 }
-.intro-sub {
-  font-family: var(--font-body); font-size: 1.4rem; font-style: italic;
-  color: var(--gold-light); margin-bottom: 2rem; line-height: 1.4;
+.space-tab.active { border-color: var(--gold); background: rgba(201,168,76,0.08); color: var(--gold); }
+.space-tab-num { font-family: var(--font-display); font-size: 0.75rem; color: var(--crimson); }
+
+/* Card */
+.space-card { border: 1px solid var(--border); background: var(--surface); animation: pageIn 0.3s ease; }
+.space-card-header { padding: 1.5rem; border-bottom: 1px solid var(--border); }
+.space-card-name {
+  font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.08em;
+  color: var(--white); margin: 0.5rem 0 0.75rem; line-height: 1;
 }
-.intro-body { font-family: var(--font-body); font-size: 1.1rem; color: var(--muted); margin-bottom: 1.2rem; line-height: 1.8; }
-.dungeons-intro .btn { margin-top: 1.5rem; }
+.space-card-desc { font-family: var(--font-body); font-size: 1rem; color: var(--muted); line-height: 1.7; }
+.space-features { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.space-features li {
+  display: flex; align-items: baseline; gap: 0.65rem;
+  font-family: var(--font-body); font-size: 1rem; color: var(--text);
+}
+.feat-bullet { color: var(--crimson); font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+
+/* Quote */
 .quote-banner {
-  margin-top: 6rem; padding: 4rem 2rem;
+  margin-top: 5rem; padding: 4rem 2rem;
   background: linear-gradient(135deg, var(--crimson) 0%, #6b1212 100%);
   position: relative; overflow: hidden;
 }
 .quote-banner::before {
-  content: '\201C'; position: absolute; top: -2rem; left: 2rem;
-  font-family: var(--font-display); font-size: 20rem;
-  color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none; user-select: none;
+  content: '\201C'; position: absolute; top: -2rem; left: 1rem;
+  font-family: var(--font-display); font-size: 18rem;
+  color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none;
 }
-.quote-banner blockquote { max-width: 700px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+.quote-banner blockquote { max-width: 680px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
 .quote-banner blockquote p {
-  font-family: var(--font-body); font-size: clamp(1.2rem, 3vw, 1.8rem);
-  font-style: italic; font-weight: 300; color: rgba(255,255,255,0.92); line-height: 1.5; margin-bottom: 1.25rem;
+  font-family: var(--font-body); font-size: clamp(1.1rem, 3vw, 1.7rem);
+  font-style: italic; font-weight: 300; color: rgba(255,255,255,0.92);
+  line-height: 1.5; margin-bottom: 1.25rem;
 }
 .quote-banner blockquote cite {
-  font-family: var(--font-ui); font-size: 0.7rem; font-style: normal;
+  font-family: var(--font-ui); font-size: 0.65rem; font-style: normal;
   letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light);
 }

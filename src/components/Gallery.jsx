@@ -13,14 +13,28 @@ const images = [
   'https://static.wixstatic.com/media/ffc933_39de4431b7ee45be8852c4c1fc387c37~mv2.jpg/v1/fill/w_313,h_313,q_75,enc_avif,quality_auto/ffc933_39de4431b7ee45be8852c4c1fc387c37~mv2.jpg',
 ];
 
-export default function Gallery() {
+export default function Gallery({ onNavigate }) {
   return (
-    <section className="gallery">
-      <div className="gallery-grid">
+    <section className="gallery-section">
+      <div className="container">
+        <span className="chip">Club Rooms</span>
+        <div className="gallery-header-row">
+          <h2 className="gallery-title">CLUBHOUSE</h2>
+          <button className="btn btn-ghost gallery-all-btn" onClick={() => onNavigate('rooms')}>
+            View All Rooms →
+          </button>
+        </div>
+      </div>
+      <div className="gallery-scroll">
         {images.map((src, i) => (
-          <div className="gallery-item" key={i}>
-            <img src={src} alt={`Dungeon facility ${i + 1}`} loading="lazy" onError={(e) => { e.target.parentElement.style.display = 'none'; }} />
-            <div className="gallery-hover" />
+          <div className="gallery-card" key={i} onClick={() => onNavigate('rooms')}>
+            <img
+              src={src} alt={`Room ${i + 1}`} loading="lazy"
+              onError={e => { e.target.parentElement.style.display = 'none'; }}
+            />
+            <div className="gallery-card-overlay">
+              <span>Room {String(i + 1).padStart(2, '0')}</span>
+            </div>
           </div>
         ))}
       </div>

@@ -2,38 +2,55 @@ import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'ClubHouse Rooms', href: '#rooms' },
-  { label: 'Dungeon Reservation', href: '#reservation' },
-  { label: 'Contact', href: '#contact' },
-  { label: 'About', href: '#about' },
-  { label: 'VIP Membership', href: '#membership' },
+  { id: 'home',        label: 'Home' },
+  { id: 'rooms',       label: 'ClubHouse Rooms' },
+  { id: 'reservation', label: 'Dungeon Reservation' },
+  { id: 'membership',  label: 'VIP Membership' },
+  { id: 'contact',     label: 'Contact' },
+  { id: 'about',       label: 'About' },
+  { id: 'chat',        label: 'Live Chat' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ activePage, onNavigate }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const handleNav = (id) => {
+    onNavigate(id);
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-inner">
-        <a href="#home" className="nav-logo">
-          <span className="logo-text">The KINGZ</span>
+        <div className="nav-logo" onClick={() => handleNav('home')}>
+          <span className="logo-main">Kingz</span>
           <span className="logo-sub">BDSM</span>
-        </a>
-        <button className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+        </div>
+
+        <button
+          className={`hamburger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
           <span /><span /><span />
         </button>
+
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {navLinks.map(link => (
-            <li key={link.label}>
-              <a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
+            <li key={link.id}>
+              <button
+                className={`nav-link ${activePage === link.id ? 'active' : ''}`}
+                onClick={() => handleNav(link.id)}
+              >
+                {link.label}
+              </button>
             </li>
           ))}
         </ul>

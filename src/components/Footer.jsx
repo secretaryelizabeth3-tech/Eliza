@@ -5,29 +5,11 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-top">
-        <div className="container">
-          <div className="footer-inner">
-            <div className="footer-brand">
-              <span className="footer-logo">The KINGZ BDSM</span>
-              <span className="footer-tagline">Discreet Community</span>
-            </div>
-            <nav className="footer-nav">
-              <a href="#home">Home</a>
-              <a href="#rooms">ClubHouse Rooms</a>
-              <a href="#reservation">Dungeon Reservation</a>
-              <a href="#contact">Contact</a>
-              <a href="#about">About</a>
-              <a href="#membership">VIP Membership</a>
-            </nav>
-            <a href="#reservation" className="btn btn-solid footer-btn">
-              Book a Dungeon Reservation
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="footer-bottom">
-        <div className="container">
-          <p>©2026 by The KINGZ BDSM Discreet Community. All Rights Reserved.</p>
+        <div className="container footer-inner">
+          <span className="footer-logo">Kingz <span>BDSM</span></span>
+          <span className="footer-tagline">Discreet Community</span>
+          <p className="footer-copy">©2024 Kingz BDSM Discreet Community. All Rights Reserved.</p>
+          <p className="footer-lock">🔒 Identity protected. Always.</p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,40 @@
+.rooms-page { min-height: 100svh; padding-bottom: 2rem; animation: pageIn 0.3s ease; background: var(--black); }
+.rooms-hero { background: var(--deep); }
+.rooms-title { color: var(--white); }
+.rooms-title span { color: var(--gold); font-style: italic; font-weight: 400; }
+.rooms-sub { font-family: var(--font-body); font-size: 1rem; font-style: italic; color: var(--muted); }
+
+.rooms-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1px;
+  background: var(--border); border: 1px solid var(--border);
+  margin-top: 0.5rem;
+}
+@media (min-width: 600px) { .rooms-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .rooms-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+
+.room-card { background: var(--surface); display: flex; flex-direction: column; transition: background 0.25s ease; }
+.room-card:hover { background: var(--deep); }
+.room-img-wrap { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+.room-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.75) saturate(0.65);
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+.room-card:hover .room-img-wrap img { transform: scale(1.05); filter: brightness(0.88) saturate(0.8); }
+.room-number {
+  position: absolute; top: 0.75rem; left: 0.75rem;
+  font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.15em;
+  color: var(--gold); background: rgba(10,7,7,0.75);
+  padding: 0.2rem 0.5rem; backdrop-filter: blur(8px);
+}
+.room-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
+.room-subtitle {
+  font-family: var(--font-ui); font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--crimson);
+}
+.room-name {
+  font-family: var(--font-display); font-size: 1.3rem;
+  letter-spacing: 0.06em; color: var(--white); line-height: 1.1;
+}
+.room-desc { font-family: var(--font-body); font-size: 0.9rem; color: var(--muted); line-height: 1.65; flex: 1; }
+.room-btn { margin-top: 0.85rem; font-size: 0.65rem; padding: 0.7rem 1rem; width: 100%; }

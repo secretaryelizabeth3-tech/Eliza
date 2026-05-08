@@ -1,0 +1,20 @@
+.contact-page { min-height: 100svh; padding-bottom: 2rem; animation: pageIn 0.3s ease; background: var(--black); }
+.contact-hero { background: var(--deep); }
+.contact-title { color: var(--white); }
+.contact-title span { color: var(--gold); font-style: italic; font-weight: 400; }
+.contact-sub { font-family: var(--font-body); font-size: 1rem; font-style: italic; color: var(--muted); }
+
+.contact-layout { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@media (min-width: 768px) { .contact-layout { grid-template-columns: 1fr 1.6fr; align-items: start; } }
+
+.contact-info { display: flex; flex-direction: column; gap: 1rem; }
+.info-card {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem;
+}
+.info-icon { font-size: 1.1rem; }
+.info-card h4 {
+  font-family: var(--font-display); font-size: 1rem;
+  letter-spacing: 0.07em; color: var(--gold);
+}
+.info-card p { font-family: var(--font-body); font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
