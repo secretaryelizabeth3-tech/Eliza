@@ -1,72 +1,113 @@
 import React, { useState } from 'react';
-import './DungeonsIntro.css';
+import emailjs from 'emailjs-com';
+import './DungeonReservation.css';
 
-const spaces = [
-  {
-    id: '01', name: 'The Vault', tag: 'Bondage',
-    desc: 'Soundproofed chamber fitted with premium restraint furniture. Full privacy. Climate controlled.',
-    items: ["St. Andrew's Cross", 'Spanking Bench', 'Bondage Chair', 'Objectifier Bench', 'Saw Horse'],
-  },
-  {
-    id: '02', name: 'The Arsenal', tag: 'Gear & Toys',
-    desc: 'Every tool curated for safety and sensation. From beginner kits to extreme-level equipment.',
-    items: ['Electro (PES, Zeus, Violet Wand)', 'Whips, Floggers, Crops', 'Chastity Devices', 'Milking Machine', 'Rope & Restraints'],
-  },
-  {
-    id: '03', name: 'The Suite', tag: 'Play Space',
-    desc: 'Discreet entrance. Free parking. Overnight accommodations available for extended sessions.',
-    items: ['Soundproof Boiler Room', 'Medical Room (soon)', 'Bathroom & Shower', 'Cross-dressing Room', 'School Room'],
-  },
+const EJ_SERVICE  = 'service_f99srdk';
+const EJ_TEMPLATE = 'template_p3xgpuh';
+const EJ_PUBLIC   = 'n7Q85aSd-8N2ECJvP';
+const ADMIN_EMAIL = 'secretaryelizabeth3@gmail.com';
+
+const LOCATIONS = [
+  'DC / Washington D.C.',
+  'Northern Virginia',
+  'Maryland',
+  'New York',
+  'Los Angeles',
+  'Other / Contact Us',
 ];
 
-export default function DungeonsIntro() {
-  const [active, setActive] = useState(0);
-  return (
-    <section className="dungeons" id="dungeons">
+export default function DungeonReservation() {
+  const [form, setForm] = useState({ fullName: '', email: '', phone: '', date: '', location: '', groupSize: '' });
+  const [status, setStatus] = useState('idle');
+  const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
+
+  const handleSubmit = async () => {
+    if (!form.fullName || !form.email || !form.date) { setStatus('error'); return; }
+    setStatus('sending');
+    try {
+      await emailjs.send(EJ_SERVICE, EJ_TEMPLATE, {
+        to_email:   ADMIN_EMAIL,
+        form_type:  'Dungeon Reservation',
+        full_name:  form.fullName,
+        from_email: form.email,
+        phone:      form.phone || 'Not provided',
+        date:       form.date,
+        location:   form.location || 'Not specified',
+        group_size: form.groupSize || 'Not specified',
+        reply_to:   form.email,
+      }, EJ_PUBLIC);
+      setStatus('success');
+    } catch { setStatus('error'); }
+  };
+
+  if (status === 'success') return (
+    <div className="reservation-page">
       <div className="container">
-        <div className="dungeons-header">
-          <span className="chip">Our Spaces</span>
-          <h2 className="dungeons-title">DUNGEONS</h2>
-          <div className="divider" />
-          <p className="dungeons-sub">Discover the Good Atmosphere of Kinky Activities</p>
-          <p className="dungeons-copy">
-            We have sophisticated club dungeon facilities in almost every city, to meet your desires
-            and fulfill your fantasies. Our facilities are state of the art with modernized equipment
-            for Dominants, Submissives and Sterns — crafted entirely for your pleasure.
-          </p>
-        </div>
-
-        <div className="space-tabs">
-          {spaces.map((s, i) => (
-            <button key={s.id} className={`space-tab ${active === i ? 'active' : ''}`} onClick={() => setActive(i)}>
-              <span className="space-tab-num">{s.id}</span>
-              <span>{s.name}</span>
-            </button>
-          ))}
-        </div>
-
-        <div className="space-card" key={active}>
-          <div className="space-card-header">
-            <span className="chip">{spaces[active].tag}</span>
-            <h3 className="space-card-name">{spaces[active].name}</h3>
-            <p className="space-card-desc">{spaces[active].desc}</p>
-          </div>
-          <ul className="space-features">
-            {spaces[active].items.map(item => (
-              <li key={item}><span className="feat-bullet">+</span>{item}</li>
-            ))}
-          </ul>
+        <div className="form-success">
+          <span className="success-icon">◈</span>
+          <h3>Session Booked</h3>
+          <p>Thanks for booking a session with us. We will get back to you on availability as well as payment information.</p>
+          <button className="btn btn-ghost" onClick={() => setStatus('idle')}>Make Another Booking</button>
         </div>
       </div>
+    </div>
+  );
 
-      <div className="quote-banner">
+  return (
+    <div className="reservation-page">
+      <div className="page-hero">
         <div className="container">
-          <blockquote>
-            <p>"You want to be free. You also want to be mine. You can't be both."</p>
-            <cite>— Kingz BDSM</cite>
-          </blockquote>
+          <span className="chip">Dungeon Reservation</span>
+          <h1 className="page-title">BOOK A<br /><span>SESSION</span></h1>
+          <p className="page-sub">We'd love to see you and your partner at our facility.</p>
         </div>
       </div>
-    </section>
+
+      <div className="container" style={{ paddingBottom: '4rem' }}>
+        <div className="form-card">
+          <div className="field-row">
+            <div className="field">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Your full name" value={form.fullName} onChange={e => set('fullName', e.target.value)} />
+            </div>
+          </div>
+          <div className="field-row">
+            <div className="field">
+              <label>Email *</label>
+              <input type="email" placeholder="your@email.com" value={form.email} onChange={e => set('email', e.target.value)} />
+            </div>
+            <div className="field">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+1 000 000 0000" value={form.phone} onChange={e => set('phone', e.target.value)} />
+            </div>
+          </div>
+          <div className="field">
+            <label>Select a Date *</label>
+            <input type="date" min={new Date().toISOString().split('T')[0]} value={form.date} onChange={e => set('date', e.target.value)} />
+          </div>
+          <div className="field">
+            <label>Preferred Dungeon Location</label>
+            <div className="chip-group">
+              {LOCATIONS.map(loc => (
+                <button key={loc} type="button" className={`chip-btn ${form.location === loc ? 'active' : ''}`} onClick={() => set('location', loc)}>{loc}</button>
+              ))}
+            </div>
+          </div>
+          <div className="field">
+            <label>How Many Will You Be?</label>
+            <div className="size-row">
+              {['1', '2', '3', '4', '5+'].map(n => (
+                <button key={n} type="button" className={`size-btn ${form.groupSize === n ? 'active' : ''}`} onClick={() => set('groupSize', n)}>{n}</button>
+              ))}
+            </div>
+          </div>
+          {status === 'error' && <p className="form-error">Name, email and date are required.</p>}
+          <button className="btn btn-primary btn-full" onClick={handleSubmit} disabled={status === 'sending'}>
+            {status === 'sending' ? 'Booking...' : 'Book Dungeon Session'}
+          </button>
+          <p className="form-note">🔒 We will contact you discreetly on availability and payment.</p>
+        </div>
+      </div>
+    </div>
   );
 }
