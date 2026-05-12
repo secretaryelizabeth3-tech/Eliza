@@ -10,7 +10,7 @@ export default function Hero({ onNavigate }) {
         <h1 className="hero-title">
           The Kinks BDSM Community
           <br />
-          <span>Discreet Community</span>
+          {/* <span>Discreet Community</span> */}
         </h1>
         <div className="hero-divider" />
         <p className="hero-tagline">Where Desires Meet Discretion</p>
