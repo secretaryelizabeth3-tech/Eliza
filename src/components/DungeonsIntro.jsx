@@ -63,7 +63,7 @@ export default function DungeonsIntro() {
         <div className="container">
           <blockquote>
             <p>"You want to be free. You also want to be mine. You can't be both."</p>
-            <cite>— The Lech BDSM</cite>
+            <cite>— The Kinks BDSM Community</cite>
           </blockquote>
         </div>
       </div>

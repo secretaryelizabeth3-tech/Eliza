@@ -18,7 +18,7 @@ export default function AboutPage({ onNavigate }) {
             <p className="about-label">Who We Are</p>
             <h2>The Most Discreet BDSM Community in the World</h2>
             <p>
-              Kingz BDSM Discreet Community is the most renowned and largest BDSM community
+              The Kinks BDSM Community Discreet Community is the most renowned and largest BDSM community
               in the world. We are a safe, inclusive, and judgment-free space for Dominants,
               Submissives, Switches, and all those who embrace BDSM as a lifestyle.
             </p>

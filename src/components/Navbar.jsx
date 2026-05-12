@@ -30,8 +30,11 @@ export default function Navbar({ activePage, onNavigate }) {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-inner">
         <div className="nav-logo" onClick={() => handleNav('home')}>
-          <span className="logo-main">Kingz</span>
-          <span className="logo-sub">BDSM</span>
+          <img src="/logo.png" alt="The Kinks BDSM Community" className="logo-img" />
+          <div className="logo-text">
+            <span className="logo-main">THE KINKS</span>
+            <span className="logo-sub">BDSM COMMUNITY</span>
+          </div>
         </div>
 
         <button

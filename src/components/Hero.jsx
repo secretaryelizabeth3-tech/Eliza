@@ -8,7 +8,7 @@ export default function Hero({ onNavigate }) {
       <div className="hero-content">
         <p className="hero-eyebrow">Welcome to</p>
         <h1 className="hero-title">
-          Kingz BDSM
+          The Kinks BDSM Community
           <br />
           <span>Discreet Community</span>
         </h1>

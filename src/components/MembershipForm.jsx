@@ -7,9 +7,9 @@ import './MembershipForm.css';
 // 2. Add a service (Gmail) and connect secretaryelizabeth3@gmail.com
 // 3. Create a template — make sure it uses the variables below
 // 4. Replace the three placeholders below with your real IDs
-const EJ_SERVICE  = 'service_f99srdk';
-const EJ_TEMPLATE = 'template_p3xgpuh';
-const EJ_PUBLIC   = 'n7Q85aSd-8N2ECJvP';
+const EJ_SERVICE  = 'YOUR_SERVICE_ID';
+const EJ_TEMPLATE = 'YOUR_TEMPLATE_ID';
+const EJ_PUBLIC   = 'YOUR_PUBLIC_KEY';
 const ADMIN_EMAIL = 'secretaryelizabeth3@gmail.com';
 // ───────────────────────────────────────────────────────────────────────────
 
@@ -66,7 +66,7 @@ export default function MembershipForm() {
         <div className="container">
           <span className="chip">VIP Membership</span>
           <h1 className="page-title">JOIN THE<br /><span>COMMUNITY</span></h1>
-          <p className="page-sub">Please fill out the form to join Kingz BDSM — Lifetime Membership Request.</p>
+          <p className="page-sub">Please fill out the form to join The Kinks BDSM Community — Lifetime Membership Request.</p>
         </div>
       </div>
 

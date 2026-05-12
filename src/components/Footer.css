@@ -1,8 +1,14 @@
 .footer { background: var(--deep); border-top: 1px solid var(--border); }
 .footer-top { padding: 3rem 0; }
-.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
-.footer-logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; color: var(--white); }
-.footer-logo span { color: var(--gold); font-style: italic; font-weight: 400; }
-.footer-tagline { font-family: var(--font-ui); font-size: 0.55rem; font-weight: 600; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); }
-.footer-copy { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--muted); }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-align: center; }
+.footer-logo-img { width: 64px; height: 64px; object-fit: contain; margin-bottom: 0.5rem; }
+.footer-logo-name {
+  font-family: var(--font-display); font-size: 1.4rem; font-weight: 700;
+  letter-spacing: 0.15em; color: var(--white);
+}
+.footer-tagline {
+  font-family: var(--font-ui); font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold);
+}
+.footer-copy { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.5rem; }
 .footer-lock { font-family: var(--font-body); font-size: 0.8rem; font-style: italic; color: var(--crimson); }

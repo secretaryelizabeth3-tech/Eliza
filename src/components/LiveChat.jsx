@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './LiveChat.css';
 
-const SYSTEM_PROMPT = `You are a discreet concierge assistant for Kingz BDSM Community — a private, members-only BDSM club. 
+const SYSTEM_PROMPT = `You are a discreet concierge assistant for The Kinks BDSM Community Community — a private, members-only BDSM club. 
 Your role is to answer questions about membership, facilities, dungeon reservations, and the community in a professional, welcoming, and non-judgmental tone.
 Keep answers concise and helpful. Protect member privacy. Never share personal details.
 If asked about pricing or reservations, guide users to fill out the membership form or contact the admin.`;
@@ -24,7 +24,7 @@ function now() {
 
 export default function LiveChat() {
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: 'Welcome to Kingz BDSM Community. How can I assist you today? All conversations are completely discreet.', time: now() }
+    { role: 'assistant', content: 'Welcome to The Kinks BDSM Community Community. How can I assist you today? All conversations are completely discreet.', time: now() }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -84,7 +84,7 @@ export default function LiveChat() {
           <div className="chat-header">
             <div className="chat-avatar">L</div>
             <div>
-              <p className="chat-agent-name">Kingz Concierge</p>
+              <p className="chat-agent-name">The Kinks Concierge</p>
               <p className="chat-agent-status"><span className="status-dot" /> Online now</p>
             </div>
           </div>
