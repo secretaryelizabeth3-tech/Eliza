@@ -7,7 +7,7 @@ import './MembershipForm.css';
 // 2. Add a service (Gmail) and connect secretaryelizabeth3@gmail.com
 // 3. Create a template — make sure it uses the variables below
 // 4. Replace the three placeholders below with your real IDs
-const EJ_SERVICE  = 'service_f99srdkD';
+const EJ_SERVICE  = 'service_f99srdk';
 const EJ_TEMPLATE = 'template_p3xgpuh';
 const EJ_PUBLIC   = 'n7Q85aSd-8N2ECJvP';
 const ADMIN_EMAIL = 'secretaryelizabeth3@gmail.com';

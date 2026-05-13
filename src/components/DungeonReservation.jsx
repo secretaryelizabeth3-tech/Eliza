@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import './DungeonReservation.css';
 
-const EJ_SERVICE  = 'service_f99srdkD';
+const EJ_SERVICE  = 'service_f99srdk';
 const EJ_TEMPLATE = 'template_p3xgpuh';
 const EJ_PUBLIC   = 'n7Q85aSd-8N2ECJvP';
 const ADMIN_EMAIL = 'secretaryelizabeth3@gmail.com';
